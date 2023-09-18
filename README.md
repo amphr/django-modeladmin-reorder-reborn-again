@@ -36,6 +36,27 @@ Install django-modeladmin-reorder-reborn:
 
 ## Configuration
 
+1. Create `admin_apps.py` file in your project folder:
+
+```python
+from django.contrib.admin.apps import AdminConfig
+
+class MyAdminConfig(AdminConfig):
+    default_site = "admin_reorder.ReorderingAdminSite"
+```
+
+2. Replace `django.contrib.admin` to `project.admin_apps.MyAdminConfig` 
+in your settings.py:
+
+```python
+INSTALLED_APPS = (
+    ...
+    '̶d̶j̶a̶n̶g̶o̶.̶c̶o̶n̶t̶r̶i̶b̶.̶a̶d̶m̶i̶n',
+    'your_project_name.admin_apps.MyAdminConfig',
+    ...
+)
+```
+
 Add the setting ADMIN_REORDER to your settings.py:
 
 ```python
