@@ -1,10 +1,6 @@
 # Credits
 
----
-
 ## Developer:
-
----
 
 * Ivan Smirnov
   * Telegram: @whiletruedoend2

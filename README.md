@@ -1,7 +1,5 @@
 # django-modeladmin-reorder-reborn
 
----
-
 Reviving the old Django `django-modeladmin-reorder` package.
 
 Detaches model groups from the apps, granting the flexibility to organize models
@@ -9,8 +7,6 @@ into various groups, change models and groups order.
 Custom names can be assigned to groups.
 
 ## Implemented origin features
-
----
 
 * Reorder apps in admin index - this will allow you to position most used apps in top of the page, instead of listing apps alphabetically. e.g. sites app before the auth app
 * Rename app labels easily for third party apps without having to modify the source code. e.g. rename auth app to Authorisation for the django admin app.
@@ -20,14 +16,10 @@ Custom names can be assigned to groups.
 
 ## Not implemented features
 
----
-
 * Cross link models from multiple apps. e.g. Add sites.Site model to the auth app.
 * Rename individual models in the app list. e.g. rename auth.User from User to Staff
 
 ## New features
-
----
 
 * Gathering models of the app that haven't been included in other groups.
 
@@ -38,15 +30,11 @@ Custom names can be assigned to groups.
 
 ## Install
 
----
-
 Install django-modeladmin-reorder-reborn:
 
 `pip install django-modeladmin-reorder-reborn`
 
 ## Configuration
-
----
 
 Add the setting ADMIN_REORDER to your settings.py:
 
