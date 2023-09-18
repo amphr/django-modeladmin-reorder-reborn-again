@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="django-modeladmin-reorder-reborn",
-    version="0.1.3",
+    version="0.1.4",
     description="Custom ordering for the apps and models in the admin app.",
     long_description=long_description,
     long_description_content_type="text/markdown",

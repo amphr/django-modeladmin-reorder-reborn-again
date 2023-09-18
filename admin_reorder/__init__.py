@@ -55,7 +55,7 @@ def _order_app_subsets(app, order_config):
                         app_subset['models']
                     ), None)
                     if not model:
-                        raise Exception(f'Model "{object_name}" not found in "{app_subset["app_label"]}" app.')
+                        continue
                     app_subset_models.append(model)
             elif models == REST_KEY:
                 app_subset_models = filter(

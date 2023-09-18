@@ -1,6 +1,11 @@
 History
 -------
 
+0.1.4 (2023-09-18)
+
+
+* Removed exception when listed in config not found
+
 0.1.3 (2023-09-18)
 
 
