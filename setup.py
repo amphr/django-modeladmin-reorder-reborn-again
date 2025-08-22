@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="django-modeladmin-reorder-reborn",
-    version="0.1.4",
+    name="django-modeladmin-reorder-reborn-again",
+    version="0.1.0",
     description="Custom ordering for the apps and models in the admin app.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/StalkerRaftik/django-modeladmin-reorder-reborn",
-    author="Ivan Smirnov",
-    author_email="IvanSmirnovOP@ya.ru",
+    url="https://github.com/amphr/django-modeladmin-reorder-reborn-again",
+    author="amphr",
+    author_email="",
     license="BSD-3-Clause",
     classifiers=[
         "Environment :: Web Environment",

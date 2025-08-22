@@ -1,4 +1,4 @@
-# django-modeladmin-reorder-reborn
+# django-modeladmin-reorder-reborn-again
 
 Reviving the old Django `django-modeladmin-reorder` package.
 
@@ -28,9 +28,9 @@ Custom names can be assigned to groups.
 
 ## Install
 
-Install django-modeladmin-reorder-reborn:
+Install django-modeladmin-reorder-reborn-again:
 
-`pip install django-modeladmin-reorder-reborn`
+`pip install django-modeladmin-reorder-reborn-again`
 
 ## Configuration
 
