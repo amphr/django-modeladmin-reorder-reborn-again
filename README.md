@@ -3,7 +3,7 @@
 Reviving the old Django `django-modeladmin-reorder` package.
 
 Detaches model groups from the apps, granting the flexibility to organize models
-into various groups, change models and groups order. 
+into various groups, change models and groups order.
 Custom names can be assigned to groups.
 
 ## Implemented origin features
@@ -13,15 +13,13 @@ Custom names can be assigned to groups.
 * Split large apps into smaller groups of models.
 * Reorder models within an group. e.g. auth.User model before the auth.Group model.
 * Exclude any of the models from the app list. e.g. Exclude auth.Group from the app list. Please note this only excludes the model from the app list and it doesn't protect it from access via url.
-
-## Not implemented features
-
 * Cross link models from multiple apps. e.g. Add sites.Site model to the auth app.
 * Rename individual models in the app list. e.g. rename auth.User from User to Staff
 
 ## New features
 
 * Gathering models of the app that haven't been included in other groups.
+* Create virtual app groups with models from multiple apps.
 
 ## Requirements
 
@@ -45,7 +43,7 @@ class MyAdminConfig(AdminConfig):
     default_site = "admin_reorder.ReorderingAdminSite"
 ```
 
-2. Replace `django.contrib.admin` to `project.admin_apps.MyAdminConfig` 
+2. Replace `django.contrib.admin` to `project.admin_apps.MyAdminConfig`
 in your settings.py:
 
 ```python
@@ -73,7 +71,23 @@ ADMIN_REORDER = [
     # Exclude models
     {'app': 'auth', 'models': ('User', )},
 
+    # Cross-linked models from multiple apps
+    {'app': 'auth', 'models': ('auth.User', 'sites.Site')},
+
+    # Models with custom names
+    {'app': 'auth', 'models': (
+        'Group',
+        {'model': 'auth.User', 'label': 'Staff'},
+    )},
+
+    # Create virtual app groups with models from multiple apps
+    {'app': 'user_management', 'label': 'User Management', 'models': (
+        'auth.User',
+        'auth.Group',
+        'sites.Site',
+    )},
+
     # Gather not included in any group models
-    {'app': 'auth', 'models': '__rest__'}, 
+    {'app': 'auth', 'models': '__rest__'},
 ]
 ```
