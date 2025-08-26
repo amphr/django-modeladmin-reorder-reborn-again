@@ -99,9 +99,13 @@ def _order_app_subsets(app, order_config, all_models_dict):
         app_subset['name'] = subset_config.get('label', app['name'])
         models = subset_config.get('models', None)
         
-        if models:
+        if models is not None:
             app_subset_models = []
             if isinstance(models, (list, tuple)):
+                # Skip app completely if models is an empty list
+                if len(models) == 0:
+                    continue
+                    
                 for model_config in models:
                     if isinstance(model_config, dict):
                         # Handle custom model labels
@@ -158,6 +162,10 @@ def _create_virtual_app(app_name, app_config, all_models_dict):
     for subset_config in app_config['config']:
         models = subset_config.get('models', [])
         if isinstance(models, (list, tuple)):
+            # Skip virtual app completely if models is an empty list
+            if len(models) == 0:
+                return None
+                
             for model_config in models:
                 if isinstance(model_config, dict):
                     # Handle custom model labels
@@ -199,7 +207,7 @@ def _build_new_order(app_list):
     for app_name, app_config in order_config.items():
         if app_config.get('is_virtual', False):
             virtual_app = _create_virtual_app(app_name, app_config, all_models_dict)
-            if virtual_app['models']:  # Only add if it has models
+            if virtual_app and virtual_app['models']:  # Only add if it exists and has models
                 virtual_apps.append(virtual_app)
     
     # Process real apps
